@@ -12,7 +12,8 @@ RUN curl -fsSL https://github.com/rhasspy/piper/releases/download/2023.11.14-2/p
     tar xzf piper.tar.gz -C /app/piper && \
     rm piper.tar.gz
 
-RUN curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx \
+RUN mkdir -p /app/piper/models && \
+    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx \
     -o /app/piper/models/hi_IN-rohan-medium.onnx && \
     curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx.json \
     -o /app/piper/models/hi_IN-rohan-medium.onnx.json && \
