@@ -12,17 +12,17 @@ RUN curl -fsSL https://github.com/rhasspy/piper/releases/download/2023.11.14-2/p
     tar xzf piper.tar.gz -C /app/piper && \
     rm piper.tar.gz
 
-RUN curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx \
+RUN curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx \
     -o /app/piper/models/hi_IN-rohan-medium.onnx && \
-    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx.json \
+    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/rohan/medium/hi_IN-rohan-medium.onnx.json \
     -o /app/piper/models/hi_IN-rohan-medium.onnx.json && \
-    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/pratham/medium/hi_IN-pratham-medium.onnx \
+    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/pratham/medium/hi_IN-pratham-medium.onnx \
     -o /app/piper/models/hi_IN-pratham-medium.onnx && \
-    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/pratham/medium/hi_IN-pratham-medium.onnx.json \
+    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/pratham/medium/hi_IN-pratham-medium.onnx.json \
     -o /app/piper/models/hi_IN-pratham-medium.onnx.json && \
-    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/priyamvada/medium/hi_IN-priyamvada-medium.onnx \
+    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/priyamvada/medium/hi_IN-priyamvada-medium.onnx \
     -o /app/piper/models/hi_IN-priyamvada-medium.onnx && \
-    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/hi/hi_IN/priyamvada/medium/hi_IN-priyamvada-medium.onnx.json \
+    curl -fsSL https://huggingface.co/rhasspy/piper-voices/resolve/main/hi/hi_IN/priyamvada/medium/hi_IN-priyamvada-medium.onnx.json \
     -o /app/piper/models/hi_IN-priyamvada-medium.onnx.json
 
 RUN ln -sf hi_IN-rohan-medium.onnx /app/piper/models/hi_IN-medium.onnx && \
