@@ -37,7 +37,7 @@ def _gen_wav_thread(task_id, text, model_path, speed, noise, variation, gap):
         tmp.close()
 
         cmd = [
-            f"{PIPER_HOME}/bin/piper",
+            f"{PIPER_HOME}/piper",
             "--model", model_path,
             "--length-scale", speed,
             "--noise-scale", noise,
@@ -468,7 +468,7 @@ def start():
     host = sys.argv[2] if len(sys.argv) > 2 else HOST
     avail = [m for m in MODELS if os.path.exists(os.path.join(MODELS_DIR, m["id"]))]
     if not avail: print(f"  ✗ No models in {MODELS_DIR}"); sys.exit(1)
-    if not os.path.exists(f"{PIPER_HOME}/bin/piper"): print("  ✗ Piper missing"); sys.exit(1)
+    if not os.path.exists(f"{PIPER_HOME}/piper"): print("  ✗ Piper missing"); sys.exit(1)
     print()
     print("  ┌──────────────────────────────────────┐")
     print("  │ Piper TTS │ HORROR STORY MODE       │")

@@ -9,7 +9,7 @@ WORKDIR /tmp
 RUN curl -fsSL https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_linux_x86_64.tar.gz \
     -o piper.tar.gz && \
     mkdir -p /app/piper && \
-    tar xzf piper.tar.gz -C /app/piper && \
+    tar xzf piper.tar.gz --strip-components=1 -C /app/piper && \
     rm piper.tar.gz
 
 RUN mkdir -p /app/piper/models && \
