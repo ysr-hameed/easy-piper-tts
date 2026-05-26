@@ -42,6 +42,7 @@ COPY piper-web/app.py /app/app.py
 WORKDIR /app
 
 ENV PIPER_HOME=/app/piper
+ENV MODELS_DIR=/app/piper/models
 ENV LD_LIBRARY_PATH=/app/piper/lib
 ENV ESPEAK_DATA_PATH=/app/piper/lib/espeak-ng-data
 

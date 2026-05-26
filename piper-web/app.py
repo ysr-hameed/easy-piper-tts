@@ -3,8 +3,8 @@ import os, sys, subprocess, tempfile, uuid, json, urllib.parse, re, threading, t
 from pathlib import Path
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 
-PIPER_HOME = os.path.expanduser("~/Documents/library/piper")
-MODELS_DIR = os.path.expanduser("~/Documents/library/piper/models")
+PIPER_HOME = os.environ.get("PIPER_HOME", os.path.expanduser("~/Documents/library/piper"))
+MODELS_DIR = os.environ.get("MODELS_DIR", os.path.join(PIPER_HOME, "models"))
 HOST = "0.0.0.0"
 PORT = 8765
 
