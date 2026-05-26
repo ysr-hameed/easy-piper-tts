@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+*.pyo
+.pytest_cache/
+*.whl
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# Piper models (large binaries)
+piper/models/*.onnx
+piper/models/*.onnx.json
+
+# Piper runtime
+piper/bin/
+piper/lib/
+
+# Docker
+docker-compose*.yml
+
+# Temp / logs
+*.log
+*.tmp
+*.temp
+
+# Env
+.env
+.env.*
