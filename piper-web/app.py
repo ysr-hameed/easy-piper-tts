@@ -6,7 +6,7 @@ from http.server import HTTPServer, SimpleHTTPRequestHandler
 PIPER_HOME = os.environ.get("PIPER_HOME", os.path.expanduser("~/Documents/library/piper"))
 MODELS_DIR = os.environ.get("MODELS_DIR", os.path.join(PIPER_HOME, "models"))
 HOST = "0.0.0.0"
-PORT = 8765
+PORT = int(os.environ.get("PORT", 8000))
 
 PIPER_BIN = os.path.join(PIPER_HOME, "bin", "piper")
 if not os.path.exists(PIPER_BIN):
