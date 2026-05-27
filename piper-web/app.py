@@ -8,6 +8,10 @@ MODELS_DIR = os.environ.get("MODELS_DIR", os.path.join(PIPER_HOME, "models"))
 HOST = "0.0.0.0"
 PORT = 8765
 
+PIPER_BIN = os.path.join(PIPER_HOME, "bin", "piper")
+if not os.path.exists(PIPER_BIN):
+    PIPER_BIN = os.path.join(PIPER_HOME, "piper")
+
 MODELS = [
     {"id": "hi_IN-rohan-medium.onnx",    "name": "Rohan",      "gender": "♂ Male"},
     {"id": "hi_IN-pratham-medium.onnx",  "name": "Pratham",    "gender": "♂ Male"},
@@ -37,7 +41,7 @@ def _gen_wav_thread(task_id, text, model_path, speed, noise, variation, gap):
         tmp.close()
 
         cmd = [
-            f"{PIPER_HOME}/piper",
+            PIPER_BIN,
             "--model", model_path,
             "--length-scale", speed,
             "--noise-scale", noise,
@@ -468,7 +472,7 @@ def start():
     host = sys.argv[2] if len(sys.argv) > 2 else HOST
     avail = [m for m in MODELS if os.path.exists(os.path.join(MODELS_DIR, m["id"]))]
     if not avail: print(f"  ✗ No models in {MODELS_DIR}"); sys.exit(1)
-    if not os.path.exists(f"{PIPER_HOME}/piper"): print("  ✗ Piper missing"); sys.exit(1)
+    if not os.path.exists(PIPER_BIN): print("  ✗ Piper missing"); sys.exit(1)
     print()
     print("  ┌──────────────────────────────────────┐")
     print("  │ Piper TTS │ HORROR STORY MODE       │")
